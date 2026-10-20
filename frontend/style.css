@@ -1,0 +1,242 @@
+
+/* Global design settings */
+:root {
+    --bg: #09090f;
+    --panel: #15151f;
+    --red: #e50914;
+    --text: #f7f7fb;
+    --muted: #aaaabd;
+    --border: #292938;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(ellipse at top right, #32101e 0, transparent 40%),
+        var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* Navigation bar */
+.navbar {
+    padding: 24px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    color: var(--red);
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.logo span {
+    color: var(--text);
+    font-size: 13px;
+}
+
+/* Main welcome section */
+.hero {
+    padding: 75px 7% 65px;
+    background: linear-gradient(110deg, #1d101a, #11111a 60%, #24101a);
+    border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+    color: #ff6470;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.1;
+    margin: 18px 0;
+}
+
+.hero h2 span {
+    color: #ff3443;
+}
+
+.hero > p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* Movie search */
+.search-box {
+    display: flex;
+    gap: 10px;
+    max-width: 650px;
+    margin-top: 28px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #414154;
+    border-radius: 9px;
+    background: #0b0b12;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #ff3443;
+    box-shadow: 0 0 0 3px #e5091425;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 20px;
+    background: var(--red);
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background: #ff2633;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Movie catalog */
+.catalog {
+    padding: 45px 7% 65px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    margin: 8px 0 0;
+    font-size: 28px;
+}
+
+#movieCount,
+#pageInfo {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Colorful movie cards */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.movie-card {
+    min-width: 0;
+    padding: 19px 15px;
+    min-height: 155px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: linear-gradient(145deg, #202031, #13131d);
+    transition: transform 0.2s, border-color 0.2s;
+    overflow-wrap: anywhere;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+}
+
+.movie-number {
+    display: inline-block;
+    color: #ff7d86;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.movie-card h3 {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.movie-year {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+#statusMessage {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+}
+
+/* Responsive layout for tablets and phones */
+@media (max-width: 1000px) {
+    .movie-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero {
+        padding-top: 48px;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .search-box button {
+        padding: 12px;
+    }
+}

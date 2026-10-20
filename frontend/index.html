@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Recommendation Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Main navigation bar -->
+    <header class="navbar">
+        <h1 class="logo">NETFLIX <span>RECOMMENDER</span></h1>
+        <p>Discover your next favourite movie</p>
+    </header>
+
+    <!-- Main welcome section -->
+    <main>
+        <section class="hero">
+            <p class="eyebrow">YOUR PERSONAL MOVIE DISCOVERY</p>
+            <h2>Find your next <span>favourite.</span></h2>
+            <p>Explore movies and discover something new to watch.</p>
+
+            <!-- Movie search input -->
+            <div class="search-box">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search movies, e.g. Dragon..."
+                    aria-label="Search movies"
+                >
+                <button id="searchButton">Search</button>
+            </div>
+        </section>
+
+        <!-- Movie catalog section -->
+        <section class="catalog">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">MOVIE COLLECTION</p>
+                    <h2>Explore Movies</h2>
+                </div>
+                <p id="movieCount">Loading movies...</p>
+            </div>
+
+            <!-- JavaScript will insert movie cards here -->
+            <div id="movieGrid" class="movie-grid"></div>
+
+            <!-- Pagination controls -->
+            <div class="pagination">
+                <button id="previousButton" disabled>Previous</button>
+                <span id="pageInfo">Page 1</span>
+                <button id="nextButton">Next</button>
+            </div>
+
+            <p id="statusMessage" role="status"></p>
+        </section>
+
+        <!-- Personalized movie recommendations -->
+        <section class="catalog" id="recommendationSection">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PERSONALIZED FOR YOU</p>
+                    <h2>Your Top 5 Recommendations</h2>
+                </div>
+            </div>
+
+            <!-- Customer ID input -->
+            <div class="search-box">
+                <input
+                    type="number"
+                    id="customerIdInput"
+                    placeholder="Enter Customer ID, e.g. 712664"
+                    aria-label="Customer ID"
+                    min="1"
+                >
+                <button id="recommendButton">Find Movies</button>
+            </div>
+
+            <!-- Recommendation messages -->
+            <p id="recommendationStatus" role="status"></p>
+
+            <!-- JavaScript will insert recommendations here -->
+            <div id="recommendationGrid" class="movie-grid"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Netflix Recommendation Engine | Machine Learning Project</p>
+    </footer>
+
+    <!-- JavaScript file -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
